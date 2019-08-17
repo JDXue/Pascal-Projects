@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.0.2\bin\i386-win32\fpc.exe" Date="1247515462"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\user\Desktop\Computer Science_Local\Projects\ConnectFour\lib\i386-win32&quot; &quot;-FuC:\Users\user\Desktop\Computer Science_Local\Projects\ConnectFour\&quot; &quot;-FUC:\Users\user\Desktop\Computer Science_Local\Projects\ConnectFour\lib\i386-win32\&quot; ConnectFour.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

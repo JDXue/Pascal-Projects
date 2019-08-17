@@ -1,0 +1,122 @@
+program ConnectFour;//I plan to make my connect four a 6x5 grid instead
+uses crt;
+var
+  board:array[0..4, 0..5] of char;
+  winner:boolean;
+  player:string;
+   y,x:integer;
+procedure drawboard;
+ begin
+  textcolor(white);
+  write('x');
+  for x:=1 to 5 do
+  begin
+  write(board[x],' ',x);
+  end;
+  writeln;
+  for y:=1 to 4 do //made var y and x to make it easier to see what I'm doing
+   begin
+   textcolor(white);
+     write(board[y],y);
+  for x:=1 to 5 do
+    begin
+  textcolor(lightblue);
+   write(board[y,x],'-');
+   end;
+  writeln();
+  end;
+ end;
+procedure game;
+var
+  userx,usery:integer;
+  begin
+   repeat
+   userx:=0;
+   usery:=0;
+  textcolor(red);
+    writeln('Player One x co-ordinate: ');
+    readln(userx);
+    writeln('Player One y co-ordinate: ');
+    readln(usery);
+       while  board[y,x] <> '-' do
+     begin
+       writeln('Already taken!');
+       write('Player One x co-ordinate: ');
+       readln(userx);
+       write('Player One y co-ordinate: ');
+       readln(usery);
+     end;
+       while ((userx>5)or(userx<1)or(usery>4)or(usery<1))
+        begin
+        writeln('Enter a number 1-5 for the x coord, and a number 1-4 for the y coord, please re-enter');
+         writeln('Player One x co-ordinate: ');
+         readln(userx);
+         writeln('Player One y co-ordinate: ');
+         readln(usery);
+        end;
+       until  ((userx<6)and(userx>0)and(usery<5)and(usery>0));
+     board[usery][userx]:='O';
+   check(board); //procedure checks whether anyone has won yet
+
+   userx:=0;
+   usery:=0;
+  textcolor(white);
+    writeln('Player Two x co-ordinate: ');
+    readln(userx);
+    writeln('Player Two y co-ordinate: ');
+    readln(usery);
+      board[usery][userx]:='C';
+   check(board);
+
+    until winner=true;
+  end;
+
+function check(board:char):boolean;
+ var
+   y,x,count1,count2:integer;
+   //count variables are used to check each players goes
+  begin
+   for y:=1 to 5 do
+    begin
+      for x:=1 to 4 do
+       begin
+     if board[y,x]='O' then
+       count1:=count1+1;
+     else if board[y,x]='C' then
+       count2:=count2+1;
+       end;
+     if ((count1=4 or count1=4)) then
+       winner:=true;
+      if count1=4 then
+        player:='player one wins!';
+      if count2=4 then
+        player:='player one wins!'
+      else
+        continue;
+        for y:=1 to 5 do
+    begin
+      for x:=1 to 4 do
+       begin
+     if board[y,x]='O' then
+       count1:=count1+1;
+     else if board[y,x]='C' then
+       count2:=count2+1;
+       end;
+     if ((count1=4 or count1=4)) then
+       winner:=true;
+      if count1=4 then
+        player:='player one wins!';
+      if count2=4 then
+        player:='player one wins!'
+      else
+        continue;
+      end;
+   end;
+  end;
+
+begin
+  winner:=false;
+  drawboard;
+  readln;
+end.
+

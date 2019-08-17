@@ -1,0 +1,68 @@
+program CardPick2;
+  uses sysutils;
+var
+
+  userinput: string;
+
+  function card():string;
+   var
+     ran_val:integer;
+     face:string;
+     begin
+      randomize;
+      ran_val:=random(13)+1;
+
+      case ran_val of
+       11:begin
+        face:='Jack';
+        write(face);
+        end;
+       12:begin
+        face:='Queen';
+        write(face);
+        end;
+       13:begin
+        face:='King';
+        write(face);
+        end;
+       14: begin
+        face:='Ace';
+        write(face);
+        end;
+     end;
+      if ran_val<11 then
+      writeln(inttostr(ran_val));
+      card:=face;
+     end;
+
+  function suits():string;
+   var
+     name: string;
+     ran_suit:integer;
+     begin
+      Randomize;
+     ran_suit:=random(3)+1;
+     if ran_suit=1 then
+     write('of Hearts');
+     if ran_suit=2 then
+     write('of Clubs');
+     if ran_suit=3 then
+     write('of Spades');
+     if ran_suit=4 then
+     write('of Diamonds');
+
+     end;
+
+begin
+writeln('Press <enter> to pick a random card');
+readln;
+
+writeln('You got: ');
+writeln;
+card();
+suits();
+
+
+ readln;
+end.
+
